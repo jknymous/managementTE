@@ -21,7 +21,7 @@ Route::post('/login', function (Request $request) {
     if (!$user) {
         // User tidak ditemukan
         return redirect()->back()
-            ->withErrors(['username' => 'Usernam salah atau lakukan pendaftaran terlebih dahulu'])
+            ->withErrors(['username' => 'Username salah atau lakukan pendaftaran terlebih dahulu'])
             ->withInput($request->only('username'));
     }
 
@@ -41,7 +41,6 @@ Route::post('/login', function (Request $request) {
 
     return redirect('/dashboard')->with('status', 'Login berhasil!');
 })->name('login.submit');
-
 
 // Route untuk dashboard
 Route::get('/dashboard', function () {
