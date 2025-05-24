@@ -117,6 +117,9 @@
             }
         });
     
+        // Menu content toggling
+        const menus = ['dashboard', 'tambah-pemain', 'rekomendasi-pemain', 'tambah-user'];
+
         function hideAllSections() {
             menus.forEach(menu => {
                 let id = menu.replace('-', '_') + '_content'; // Pastikan ID sesuai
@@ -124,6 +127,7 @@
                 if(section) section.classList.add('hidden');
             });
         }
+
         menus.forEach(menu => {
             const menuLink = document.getElementById('menu-' + menu);
             if(menuLink){
@@ -139,6 +143,8 @@
                 });
             }
         });
+
+        // Display dashboard section on page load
         document.addEventListener('DOMContentLoaded', () => {
             hideAllSections();
             const dashboardSection = document.getElementById('dashboard_content');
