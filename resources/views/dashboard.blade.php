@@ -39,7 +39,7 @@
 
     <!-- Sidebar -->
     <aside id="sidebar"
-        class="fixed top-0 left-0 z-40 w-64 h-full bg-white shadow-md transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out md:static md:shadow-none">
+        class="fixed top-0 left-0 z-40 w-64 h-full bg-white shadow-md transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out md:static md:shadow">
         <!-- Logo Sidebar (Desktop Only) -->
         <div class="hidden md:flex px-6 py-6 items-center justify-center border-b border-gray-200">
             <img src="{{ asset('images/top.png') }}" alt="Logo" class="h-20 w-auto object-contain" />
@@ -73,6 +73,12 @@
                 </svg>
                 Tambah User
             </a>
+            <a href="#" id="menu-data-user" class="flex items-center px-4 py-2 rounded text-gray-700 hover:bg-blue-300 hover:text-white transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                </svg>                                  
+                Data User
+            </a>
             @endif
         </nav>
 
@@ -98,6 +104,7 @@
         @include('dashboard.rekomendasi_pemain')
         @if(session('role') === 'admin')
             @include('dashboard.tambah_user')
+            @include('dashboard.data_user')
         @endif
     </main>
 
@@ -118,7 +125,7 @@
         });
     
         // Menu content toggling
-        const menus = ['dashboard', 'tambah-pemain', 'rekomendasi-pemain', 'tambah-user'];
+        const menus = ['dashboard', 'tambah-pemain', 'rekomendasi-pemain', 'tambah-user', 'data-user'];
 
         function hideAllSections() {
             menus.forEach(menu => {
